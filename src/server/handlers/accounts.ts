@@ -1,14 +1,15 @@
 
 import prisma from '../../prisma'
 
-import * as bcrypt from 'bcrypt'
+import { genSalt, hash } from "bcrypt-ts";
 
 export async function create(req, h) {
 
     try {
 
+        const salt = await genSalt(10)
+        const hashedPassword = await hash(req.payload.password, salt)
         // hash password with bcrypt
-        const hashedPassword = await bcrypt.hash(req.payload.password, 10)
 
         const user = await prisma.user.findFirst({
             where: {
