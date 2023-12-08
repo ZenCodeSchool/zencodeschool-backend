@@ -11,7 +11,7 @@ model User {
   id                Int                @id @default(autoincrement())
   email             String             @unique
   password          String
-  username          String
+  username          String?
   EmailPasswordAuth EmailPasswordAuth?
   Instructor        Instructor[]
   JwtToken          JwtToken[]
@@ -49,3 +49,4 @@ model SocialMediaAuth {
   socialId String
   User     User   @relation(fields: [userId], references: [id])
 }
+

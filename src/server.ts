@@ -96,6 +96,23 @@ server.route({
   }
 })
 
+server.route({
+  method: 'POST',
+  path: '/api/register',
+  handler: handlers.Accounts.create,
+  options: {
+    description: 'Apply to register with the academy',
+    tags: ['api', 'accounts'],
+    response: {
+      failAction: 'log',
+      schema: Joi.object({
+        account: Joi.object()
+        .label('NewAccount')
+      })
+    }
+  }
+})
+
 var started = false
 
 export async function start() {
