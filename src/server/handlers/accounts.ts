@@ -1,9 +1,11 @@
 
 import prisma from '../../prisma'
 
-import { genSalt, hash } from "bcrypt-ts";
+//import { genSalt, hash } from "bcrypt-ts";
 
 export async function create(req, h) {
+
+/*
 
     try {
 
@@ -36,5 +38,6 @@ export async function create(req, h) {
         return h.response(error).code(500)
 
     }
+*/
   
   }

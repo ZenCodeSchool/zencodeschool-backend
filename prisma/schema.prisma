@@ -50,3 +50,48 @@ model SocialMediaAuth {
   User     User   @relation(fields: [userId], references: [id])
 }
 
+model Course {
+  id        Int      @id @default(autoincrement())
+  youtubeUrl String
+  imgSrc    String
+  price     String
+  author    String
+  title     String
+  slug      String   @unique
+  lessons   Int
+  students  Int
+  desc      String
+  age       String
+  time      String
+  seat      Int
+  duration Int?
+  programTitle String?
+}
+
+model Blog {
+  id       Int      @id @default(autoincrement())
+  imgSrc   String
+  date     DateTime @map("published_at")
+  title    String
+  author   String
+  category String
+  desc     String
+  slug     String   @unique
+
+  @@map("blogs")
+}
+
+model Event {
+  id           Int      @id @default(autoincrement())
+  imgSrc       String
+  youtubeUrl   String
+  dayDate      String
+  monthYear    String
+  location     String
+  startTime    String
+  endTime      String
+  participants Int?
+  skillLevel   String
+  title        String
+  slug         String   @unique
+}
